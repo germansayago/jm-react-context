@@ -1,14 +1,13 @@
-import React from "react";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
+import LanguageContext from "../context/LanguageProvider";
+import ThemeContext from "../context/ThemeContext";
 
-const Header = ({
-  auth,
-  handleAuth,
-  theme,
-  handleTheme,
-  texts,
-  handleLanguage,
-  language,
-}) => {
+const HeaderContext = () => {
+  const { theme, handleTheme } = useContext(ThemeContext);
+  const { auth, handleAuth } = useContext(AuthContext);
+  const { language, handleLanguage, texts } = useContext(LanguageContext);
+
   return (
     <header className={theme}>
       <h2>{texts.headerTitle}</h2>
@@ -23,20 +22,20 @@ const Header = ({
       </select>
       <input
         type="radio"
-        name="theme"
-        id="light"
+        name="theme-context"
+        id="light-context"
         onChange={handleTheme}
         value="light"
       />
-      <label htmlFor="light">{texts.headerLight}</label>
+      <label htmlFor="light-context">{texts.headerLight}</label>
       <input
         type="radio"
-        name="theme"
-        id="dark"
+        name="theme-context"
+        id="dark-context"
         onChange={handleTheme}
         value="dark"
       />
-      <label htmlFor="dark">{texts.headerDark}</label>
+      <label htmlFor="dark-context">{texts.headerDark}</label>
       {auth ? (
         <button onClick={handleAuth}>{texts.buttonLogout}</button>
       ) : (
@@ -46,4 +45,4 @@ const Header = ({
   );
 };
 
-export default Header;
+export default HeaderContext;

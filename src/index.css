@@ -8,18 +8,18 @@ body {
 }
 
 .my-page {
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 0 auto 30px auto;
+  padding: 1rem;
   width: 70%;
   background-color: #ccc;
 }
 
 .light {
-  padding: 0.5rem;
+  padding: 0.2rem;
 }
 
 .dark {
-  padding: 0.5rem;
+  padding: 0.2rem;
   background-color: #fff;
   filter: invert(1);
 }
