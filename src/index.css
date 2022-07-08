@@ -15,11 +15,11 @@ body {
 }
 
 .light {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .dark {
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #fff;
   filter: invert(1);
 }

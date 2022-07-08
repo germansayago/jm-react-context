@@ -1,10 +1,9 @@
 import React from "react";
 
-const Main = ({ theme, texts }) => {
+const Main = ({ auth, theme, texts }) => {
   return (
     <main className={theme}>
-      <p>{texts.mainWelcome}</p>
-      <p>{texts.mainHello}</p>
+      {auth ? <p>{texts.mainWelcome}</p> : <p>{texts.mainHello}</p>}
       <p>{texts.mainContent}</p>
     </main>
   );

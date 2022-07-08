@@ -1,16 +1,24 @@
 import React from "react";
 
-const Header = ({ theme, handleTheme, texts, handleLanguage, language }) => {
-  console.log(language);
+const Header = ({
+  auth,
+  handleAuth,
+  theme,
+  handleTheme,
+  texts,
+  handleLanguage,
+  language,
+}) => {
+  console.log(auth);
   return (
     <header className={theme}>
       <h2>{texts.headerTitle}</h2>
       <h3>{texts.headerSubtitle}</h3>
       <select onChange={handleLanguage}>
-        <option value="es" selected={language === "es" ? true : false}>
+        <option value="es" defaultValue={language === "es" ? "checked" : ""}>
           ES
         </option>
-        <option value="en" selected={language === "en" ? true : false}>
+        <option value="en" defaultValue={language === "en" ? "checked" : ""}>
           EN
         </option>
       </select>
@@ -18,8 +26,8 @@ const Header = ({ theme, handleTheme, texts, handleLanguage, language }) => {
         type="radio"
         name="theme"
         id="light"
-        onClick={handleTheme}
-        checked={theme === "light" ? true : false}
+        onChange={handleTheme}
+        checked={theme === "light"}
         value="light"
       />
       <label htmlFor="light">{texts.headerLight}</label>
@@ -27,13 +35,16 @@ const Header = ({ theme, handleTheme, texts, handleLanguage, language }) => {
         type="radio"
         name="theme"
         id="dark"
-        onClick={handleTheme}
-        checked={theme === "dark" ? true : false}
+        onChange={handleTheme}
+        checked={theme === "dark"}
         value="dark"
       />
       <label htmlFor="dark">{texts.headerDark}</label>
-      <button>{texts.buttonLogin}</button>
-      <button>{texts.buttonLogout}</button>
+      {auth ? (
+        <button onClick={handleAuth}>{texts.buttonLogout}</button>
+      ) : (
+        <button onClick={handleAuth}>{texts.buttonLogin}</button>
+      )}
     </header>
   );
 };
