@@ -7,9 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+header,
+main {
+  margin-bottom: 0.5rem;
+}
+
 .my-page {
   margin: 0 auto 30px auto;
-  padding: 1rem;
+  padding: 0.5rem;
   width: 70%;
   background-color: #ccc;
 }
